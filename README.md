@@ -1,1 +1,10 @@
-DyCon-Data-Driven-documentation
+
+# Install all dependences
+```
+bundle install
+```
+
+# Execution
+```
+bundle exec jekyll server
+```

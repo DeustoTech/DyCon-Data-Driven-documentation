@@ -1,0 +1,97 @@
+---
+layout: default
+---
+<hr>
+{{page.description}}
+<p></p>
+<h1> Example </h1>
+<hr>
+{{content}}
+<h1> Properties </h1>
+<hr>
+
+{% for iprop in page.properties %}
+  <h3 style="color: #5325db">{{iprop[0]}}</h3>
+  <p>{{iprop[1].description}}</p>
+  <table>
+    <tr>
+      <th>Type</th>
+      <th>Default</th>
+    </tr>
+    <tr>
+      <td>{{iprop[1].type}}</td>
+      <td>{{iprop[1].default}}</td>
+    </tr>
+  </table>
+
+{% endfor %}
+<hr>
+
+<h1> Methods </h1>
+<hr>
+
+{% for imethod in page.methods %}
+<h3 style="color: #5325db">{{imethod[0]}}</h3>
+<p>{{imethod[1].description}}</p>
+
+      <!-- MANDATORY INPUTS  -->
+      {% if imethod[1].MandatoryInputs %}
+      <h4>Mandatory Input Parameters</h4>
+
+      <table>
+          <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>class</th>
+          </tr>
+          {% for var in imethod[1].MandatoryInputs %}
+          <tr>
+              <td>{{var[0]}}</td>
+              <td>{{var[1].description}}</td>
+              <td>{{var[1].class}}</td>
+          </tr>
+          {% endfor %}
+
+      </table>
+      {% endif %}
+      <!-- OPTIONAL INPUTS  -->
+            {% if imethod[1].OptionalInputs %}
+            <h4>Optional Input Parameters</h4>
+      
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>class</th>
+                </tr>
+                {% for var in imethod[1].OptionalInputs %}
+                <tr>
+                    <td>{{var[0]}}</td>
+                    <td>{{var[1].description}}</td>
+                    <td>{{var[1].class}}</td>
+                </tr>
+                {% endfor %}
+      
+            </table>
+            {% endif %}
+      <!-- OUTPUTS INPUTS  -->
+      {% if imethod[1].Outputs %}
+      <h4>Optional Input Parameters</h4>
+
+      <table>
+          <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>class</th>
+          </tr>
+          {% for var in imethod[1].Outputs %}
+          <tr>
+              <td>{{var[0]}}</td>
+              <td>{{var[1].description}}</td>
+              <td>{{var[1].class}}</td>
+          </tr>
+          {% endfor %}
+
+      </table>
+      {% endif %}
+{% endfor %}
