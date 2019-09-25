@@ -3,56 +3,56 @@
     "id": "0",
     "title": "Download",
     "content": "DyCon Toolbox is open source, compatible with MATLAB 9.3 (R2017b) or later, and is freely available on Github. Direct Download Download by following link: DyCon Toolbox (.zip) Download from MATLAB Alternatively you can start using DyCon Toolbox by simply pasting the code below to your MATLAB command window unzip(&#39;https://github.com/DeustoTech/DyCon-Computational-Platform/archive/master.zip&#39;) addpath(genpath(fullfile(cd,&#39;DyCon-toolbox-master&#39;))) Download from Github If you rather prefer to clone the repository directly from Github, you can do it by typing the following command at a terminal: git clone https://github.com/DeustoTech/DyCon-Computational-Platform.git Give us your feedback Please if you find any bug or have questions, do not hesitate to contact us. You can give us your feedback through this email address (dycon-dev-group@deusto.es). Get started To get started we encourage you to visit First Steps where the basic features of DyCon Toolbox are explained. Then we suggest you to check any of our Tutorials.",
-    "url": "https://deustotech.github.io/dycon-data-driven-documentation/posts/02-Download/",
+    "url": "https://deustotech.github.io/DyCon-Data-Driven-documentation/posts/02-Download/",
     "relUrl": "/posts/02-Download/"
   },
   "1": {
     "id": "1",
     "title": "Getting Started",
     "content": "Dycon Toolbox is an environment under the paradigm of object-oriented programming. We create objects to define control problems. We can see an example of this in a general optimal control problem: subject to: DyCon Toolbox tries to solve this problem from different known methods. To be able to easily compare them and choose the most appropriate method for each type of problem. In this way control problems are objects and resolution algorithms are methods associated with these objects. The idea is that the different algorithms produce the same solution structure so that other methods of visualization and comparison can be used independent of the resolution algorithm.",
-    "url": "https://deustotech.github.io/dycon-data-driven-documentation/posts/025-GettingStarted/",
+    "url": "https://deustotech.github.io/DyCon-Data-Driven-documentation/posts/025-GettingStarted/",
     "relUrl": "/posts/025-GettingStarted/"
   },
   "2": {
     "id": "2",
     "title": "System Identification Examples",
     "content": "Given the ODE begin{array}{c} x’(t) = f(t, x(t), u(t)), t in [0,T], x(0) = x_0, end{array} with $x(t)$ and $u(t)$ being the state and control variables respectively. The main goal is to find the control $u(t)$ that optimizes a certain functional $J(x(t),u(t))$. Summarizing, control of ODEs is crucial when the main interest is not to find the solution $x(t)$ of the ODE, but instead to optimize a certain quantity $J(x(t),u(t))$ with respect to the control variable $u(t)$ and subject to the ODE.",
-    "url": "https://deustotech.github.io/dycon-data-driven-documentation/posts/06-Examples/SystemIdentification/061-ODE-Examples/",
+    "url": "https://deustotech.github.io/DyCon-Data-Driven-documentation/posts/06-Examples/SystemIdentification/061-ODE-Examples/",
     "relUrl": "/posts/06-Examples/SystemIdentification/061-ODE-Examples/"
   },
   "4": {
     "id": "4",
     "title": "System Identification from Data",
     "content": "System Identification from data asda",
-    "url": "https://deustotech.github.io/dycon-data-driven-documentation/posts/03-SystemIdentification/T03_Introduction/",
+    "url": "https://deustotech.github.io/DyCon-Data-Driven-documentation/posts/03-SystemIdentification/T03_Introduction/",
     "relUrl": "/posts/03-SystemIdentification/T03_Introduction/"
   },
   "5": {
     "id": "5",
     "title": "Examples",
     "content": "One of the great contributions of Dycon Toolbox are the examples provided by the team of the Chair of Computational Mathematics. In this section you will find examples of use of DyCon Toolbox classified by ODE and PDE",
-    "url": "https://deustotech.github.io/dycon-data-driven-documentation/posts/06-Examples/T06-Examples/",
+    "url": "https://deustotech.github.io/DyCon-Data-Driven-documentation/posts/06-Examples/T06-Examples/",
     "relUrl": "/posts/06-Examples/T06-Examples/"
   },
   "6": {
     "id": "6",
     "title": "Heat Equation Identification from data",
     "content": "",
-    "url": "https://deustotech.github.io/dycon-data-driven-documentation/posts/06-Examples/SystemIdentification/T06ODET0001_HeatEquation/",
+    "url": "https://deustotech.github.io/DyCon-Data-Driven-documentation/posts/06-Examples/SystemIdentification/T06ODET0001_HeatEquation/",
     "relUrl": "/posts/06-Examples/SystemIdentification/T06ODET0001_HeatEquation/"
   },
   "7": {
     "id": "7",
     "title": "Identification of control lineal system",
     "content": "clear; syms t symY = SymsVector(&#39;y&#39;,4); symU = SymsVector(&#39;u&#39;,4); Dynamics T = 20; Y0 = [2,3.2,1,4].&#39;; Fsym = @(t,Y,U,Params) U; dynamics = ode(Fsym,symY,symU,&#39;InitialCondition&#39;,Y0,&#39;FinalTime&#39;,T); dynamics.Solver = @eulere; dynamics.Nt = 150; %%dynamics.SolverParameters = {odeset(&#39;RelTol&#39;,1e-1,&#39;AbsTol&#39;,1e-1)}; %% beta=1; alphaone=0.0392; %%in the pdf &quot;draft_Marposs3.pdf&quot;, this parameter is &quot; alpha_1&quot;. alphatwo=24.5172; %%in the pdf &quot;draft_Marposs3.pdf&quot;, this parameter is &quot; alpha_2&quot;. symPsi = @(T,Y) 0; symL = @(t,Y,U) (U(1)^2+U(2)^2+U(3)^2+U(4)^2)+ ... (0.5)*(beta*alphaone)*((-(sin(Y(1))+sin(Y(2))+sin(Y(3))+sin(Y(4))))^2 + ... (cos(Y(1))+cos(Y(2))+cos(Y(3))+cos(Y(4)) )^2) + ... (0.5)*(beta*alphatwo)*( (sin(Y(4))+sin(Y(3))-sin(Y(2))-sin(Y(1)) )^2 + ... (cos(Y(1))+cos(Y(2))-cos(Y(3))-cos(Y(4)) )^2); For last, you an create the functional object Creta the control Problem iCP1 = Pontryagin(dynamics,symPsi,symL); %% AMPL Neos Server AMPLFileFixedFinalTime(iCP1,&#39;AMPL.txt&#39;) outfile = SendNeosServer(&#39;AMPL.txt&#39;); Output in: /home/djoroya/Documentos/GitHub/DyCon-toolbox/tmp/AMPL-executions/02-Jul-2019-13-25-147948-097541-AMPL.txt/AMPL.txt.out Read Data AMPLSolution = NeosLoadData(outfile); Solve Gradient U = zeros(dynamics.Nt,dynamics.ControlDimension); Y = zeros(dynamics.Nt,dynamics.StateDimension); GetSymCrossDerivatives(iCP1) GetSymCrossDerivatives(iCP1.Dynamics) YU0 = [Y U]; Udim = dynamics.ControlDimension; Ydim = dynamics.StateDimension; options = optimoptions(&#39;fmincon&#39;,&#39;display&#39;,&#39;iter&#39;, ... &#39;MaxFunctionEvaluations&#39;,1e6, ... &#39;SpecifyObjectiveGradient&#39;,true, ... &#39;CheckGradients&#39;,false, ... &#39;SpecifyConstraintGradient&#39;,true, ... &#39;HessianFcn&#39;,@(YU,Lambda) Hessian(iCP1,YU,Lambda)); %% funobj = @(YU) StateControl2DiscrFunctional(iCP1,YU(:,1:Ydim),YU(:,Ydim+1:end)); clear ConstraintDynamics YU = fmincon(funobj,YU0, ... [],[], ... [],[], ... [],[], ... @(YU) ConstraintDynamics(iCP1,YU(:,1:Ydim),YU(:,Ydim+1:end)), ... options); iCP1.Dynamics.StateVector.Numeric = YU(:,1:Ydim); iCP1.Dynamics.Control.Numeric = YU(:,Ydim+1:end); First-order Norm of Iter F-count f(x) Feasibility optimality step 0 1 6.230187e+00 4.000e+00 0.000e+00 1 4 9.237042e+00 1.224e+00 3.293e-01 8.660e+00 2 6 1.165134e+01 7.973e-01 1.355e-01 4.330e+00 3 7 1.977411e+01 5.829e-16 2.831e-01 8.660e+00 4 9 1.889025e+01 5.343e-16 5.609e-01 8.660e+00 5 10 1.541835e+01 5.759e-16 1.910e-01 8.660e+00 6 13 1.440534e+01 8.661e-16 3.941e-01 1.516e+01 7 15 1.215624e+01 7.078e-16 3.012e-01 1.516e+01 8 17 1.016819e+01 8.383e-16 4.225e-01 1.516e+01 9 18 7.483708e+00 7.421e-02 1.138e-01 3.606e+01 10 19 7.375461e+00 1.140e-09 2.430e-02 2.456e+00 11 20 7.371419e+00 5.615e-10 7.266e-04 3.191e-01 12 21 7.371373e+00 3.057e-11 4.055e-06 1.109e-01 Local minimum found that satisfies the constraints. Optimization completed because the objective function is non-decreasing in feasible directions, to within the default value of the optimality tolerance, and constraints are satisfied to within the default value of the constraint tolerance. figure subplot(2,2,1) plot(iCP1.Dynamics.Control.Numeric(1:end-1,:),&#39;.-&#39;) title(&#39;DyCon Toolbox Control&#39;); subplot(2,2,3) plot(iCP1.Dynamics.StateVector.Numeric(1:end-1,:),&#39;.-&#39;) title(&#39;DyCon Toolbox State&#39;); %% subplot(2,2,2) plot(AMPLSolution.Control&#39;,&#39;.-&#39;) title(&#39;AMPL Control&#39;); subplot(2,2,4) plot(AMPLSolution.State&#39;,&#39;.-&#39;) title(&#39;AMPL State&#39;); figure subplot(1,2,1) plot(iCP1.Dynamics.Control.Numeric(1:end-1,:) - AMPLSolution.Control(:,1:end-1)&#39;,&#39;.-&#39;) title(&#39;Diff Control&#39;); subplot(1,2,2) plot(iCP1.Dynamics.StateVector.Numeric(1:end-1,:) - AMPLSolution.State(:,1:end-1)&#39;,&#39;.-&#39;) title(&#39;Diff State&#39;);",
-    "url": "https://deustotech.github.io/dycon-data-driven-documentation/posts/06-Examples/SystemIdentification/T06ODET0002_IdentificationLinearControl/",
+    "url": "https://deustotech.github.io/DyCon-Data-Driven-documentation/posts/06-Examples/SystemIdentification/T06ODET0002_IdentificationLinearControl/",
     "relUrl": "/posts/06-Examples/SystemIdentification/T06ODET0002_IdentificationLinearControl/"
   },
   "8": {
     "id": "8",
     "title": "Home",
     "content": "A MATLAB library which serves for the calculation of non-linear control problems.  Table of Contents Symbolic Interface Modular Structure Direct and Indirect Methods Tunnel to other platforms For each of these objects, we create different methods for the resolution of problems. &lt;/p&gt; The general formulation of these problems are: For each of these objects, we create different methods for problem resolution. In this way, we can easily choose the type of algorithm to solve the problem. For more information, continue exploring in our documentation. Symbolic Interface The symbolic interface of matlab makes the definition of problems easier. And in some cases, the problem can be solved analytically. For example, DyCon Toolbox able to define a continuous state equations x = sym(&#39;x&#39;,[4 1]); u = sym(&#39;u&#39;,[4 1]); F = @(t,x,u) x + u; With the ode class, we can create a structure with all information for solve an initial condition problem idynamics = ode(F,x,u); Modular Structure DyCon Toolbox has been designed to easily accept different blocks of code. In this way, you can use another solver of the differential equations or other optimizers in any one programming language and taking advantage of all the interface already created. The first addition of de DyCon Toolbox is the acopling with the PDE Toolbox, native of MATLAB. In this way, we can use the mesh tool of the matlab to define and solve the PDE equation, and sovle de optimal control problem with DyCon Toolbox. Direct and Indirect Methods Main feature of DyCon Toolbox are the severals methods. The optimal control problems can be solve via full discretization or via resolve the optimal conditions. Full Discretization (Direct Method) Optimal Conditions (Indirect Methods) Tunnel to other platforms DyCon Toolbox is able to create a optimal control problem. The syntaxis of DyCon toolbox is very general and can be translate to other solver. For example, we have a translation of a AMPL/Ipopt.",
-    "url": "https://deustotech.github.io/dycon-data-driven-documentation/",
+    "url": "https://deustotech.github.io/DyCon-Data-Driven-documentation/",
     "relUrl": "/"
   }
   

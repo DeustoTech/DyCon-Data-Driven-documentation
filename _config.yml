@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: DyCon Toolbox
 description: DyCon Data Documentation
-baseurl: "/dycon-data-driven-documentation" # the subpath of your site, e.g. /blog
+baseurl: "/DyCon-Data-Driven-documentation" # the subpath of your site, e.g. /blog
 url: "https://deustotech.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: pretty
